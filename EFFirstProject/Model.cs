@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 /*Tip: This application intentionally keeps things simple for clarity. Connection strings should not be stored in the code for production applications. 
  * You may also want to split each C# class into its own file.*/
 
+// Add-Migration InitialCreate creates the initial set of tables for the model
+// Update-Database applies any pending migrations to the database. Will create the database if it does not already exist.(applies the new migration to the database)
+
 namespace EFFirstProject
 {
     public class BloggingContext : DbContext
@@ -21,7 +24,7 @@ namespace EFFirstProject
         {
             var folder = Environment.SpecialFolder.LocalApplicationData; // reference to the local application data folder
             var path = Environment.GetFolderPath(folder); // Get the path to the local application data folder as a string
-            DbPath = System.IO.Path.Join(path, "blogging.db:"); // Combine the folder path with the database file name
+            DbPath = Path.Join(path, "blogging.db"); // Combine the folder path with the database file name
         }
 
         // The following configures EF to create a Sqlite database file in the
