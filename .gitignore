@@ -2,6 +2,9 @@
 .vs/
 .vs/**
 
+# settings
+appsettings.*.json
+
 # User-specific files
 *.rsuser
 *.suo
